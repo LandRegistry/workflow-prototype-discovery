@@ -3,8 +3,8 @@ title: Land Registry
 author: Land Registry
 email:
 description: Land Registry
-baseurl: "workflow-prototypes/" # the subpath of your site, e.g. /blog/
-url: "http://www.landregistryconcept.co.uk/" # the base hostname & protocol for your site
+baseurl: "/workflow-prototypes" # the subpath of your site, e.g. /blog/
+url: "http://www.landregistryconcept.co.uk" # the base hostname & protocol for your site
 
 
 # Build settings
