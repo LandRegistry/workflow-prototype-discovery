@@ -14,13 +14,13 @@ Hosted by [MaxCDN](http://www.bootstrapcdn.com/) and [GitHub Pages](https://page
 
 ```
 git clone git@github.com:LandRegistry/workflow-prototypes.git
-cd workflow-prototypes.git
+cd workflow-prototypes
 bundle install
 bundle exec jekyll serve
 ```
 
 ### Running tests
-
+This is the same script that Travis runs during the build, run this locally before pushing to avoid broken builds:
 ```
 ./script/cibuild
 ```
