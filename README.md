@@ -11,7 +11,7 @@ Deployed by [Travis CI](https://travis-ci.org/matthew-shaw/matthew-shaw.github.i
 Hosted by [MaxCDN](http://www.bootstrapcdn.com/) and [GitHub Pages](https://pages.github.com/).
 
 ### Getting started
-
+Requires [Ruby](https://www.ruby-lang.org/en/downloads/) and [RubyGems](http://rubygems.org/pages/download).
 ```
 git clone git@github.com:LandRegistry/workflow-prototypes.git
 cd workflow-prototypes
