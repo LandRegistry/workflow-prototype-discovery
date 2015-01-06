@@ -2,7 +2,7 @@ Workflow Management Prototypes
 ===================
 [![Build Status](https://travis-ci.org/LandRegistry/workflow-prototypes.svg?branch=master)](https://travis-ci.org/LandRegistry/workflow-prototypes)
 
-Made with [Jekyll](http://jekyllrb.com/), [Bootstrap](http://getbootstrap.com/), [Bootswatch](http://bootswatch.com/) & [Font Awesome](http://fortawesome.github.io/Font-Awesome/).
+Made with [Jekyll](http://jekyllrb.com/), [Bootstrap](http://getbootstrap.com/) & [Font Awesome](http://fortawesome.github.io/Font-Awesome/).
 
 Tested with [HTML Proofer](https://github.com/gjtorikian/html-proofer).
 
