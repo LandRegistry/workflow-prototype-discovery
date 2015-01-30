@@ -1,0 +1,39 @@
+---
+layout: stuff_pot
+title: Stuff pot
+permalink: /stuff/
+---
+
+
+  <div class="container">
+    <h2>Stuff Pot</h2>
+    <p>The current stuff pot for your office</p>      
+    <table class="table table-hover table-striped table-bordered table-condensed">
+      <thead>
+        <tr>
+        <th>Priority Date</th>
+        <th>Reference</th>
+        <th>Title Number(s)</th>
+        <th>Type</th>
+        <th>Status</th>
+        <th>Current Priority</th>
+        </tr>
+      </thead>
+      <tbody>   
+        {% for thing in site.data.data.things %}
+          <tr>
+          <td>{{ thing.datetime | date: "%d/%m/%Y %H:%M" }}</td>
+          <td>{{ thing.reference }}</td>
+          <td>{{ thing.titles }}</td>
+          <td>{{ thing.type }}</td>
+          <td>{{ thing.status }}</td>
+          <td>{% if thing.priority =="true"%}
+                <span class="glyphicon glyphicon-exclamation-sign text-success"></span>
+              {% endif %}
+          </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  
