@@ -12,12 +12,14 @@ permalink: /listb/
 
 <div class="row">
   <div class="col-lg-6 text-left">
-    <div class="input-group">
-      <input type="search" class="form-control" placeholder="Search for...">
-      <span class="input-group-btn">
-        <button class="btn btn-default" type="button"><i class="fa fa-search"></i> Search</button>
-      </span>
-    </div>
+    <form>
+      <div class="input-group">
+        <input type="search" class="form-control" placeholder="Search for...">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button"><i class="fa fa-search"></i> Search</button>
+        </span>
+      </div>
+    </form>
   </div>
   <div class="col-lg-6 text-right">
     <div class="btn-group">
@@ -41,61 +43,35 @@ permalink: /listb/
       <tr>
         <th>Type</th>
         <th>Reference</th>
-        <th>Status</th>
+        <th>Priority Date</th>
+        <th>Progress</th>
         <th>Action</th>
       </tr>
     </thead>
     <tbody>
-      <tr class="warning">
-        <td>OC1</td>
-        <td>792d9dd5-918c-41dc-a063-a17b1b643974</td>
-        <td><div class="progress">
-          <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 80%;">
-            80%
-          </div>
-        </div></td>
-        <td><button type="button" class="btn btn-warning btn-block">Suspend <i class="fa fa-chevron-right fa-fw"></i></button></td>
-      </tr>
-      <tr class="success">
-        <td>Register View</td>
-        <td>150df44d-6009-4e45-9ac3-10f4e51fec62</td>
-        <td><div class="progress">
-          <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 100%;">
-            100%
-          </div>
-        </div></td>
-        <td><button type="button" class="btn btn-success btn-block">Complete <i class="fa fa-chevron-right fa-fw"></i></button></td>
-      </tr>
-      <tr class="danger">
-        <td>OC2</td>
-        <td>c3d0e659-b97c-4851-bd62-126fec1617ea</td>
-        <td><div class="progress">
-          <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 40%;">
-            40%
-          </div>
-        </div></td>
-        <td><button type="button" class="btn btn-danger btn-block">Refer <i class="fa fa-chevron-right fa-fw"></i></button></td>
-      </tr>
+      {% assign cases = site.data.non_prio_list.non_prio.cases | sort: "timestamp" %}
+      {% for case in cases %}
       <tr>
-        <td>K16</td>
-        <td>d589ff57-6f1f-46f1-a17f-bca0355cb107</td>
-        <td><div class="progress">
-          <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 0%;">
-            0%
+        <td>{{ case.type }}</td>
+        <td>{{ case.reference }}</td>
+        <td>{{ case.timestamp | date: "%D %T" }}</td>
+        <td>
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="{{ case.progress }}" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: {{ case.progress }}%;">
+              {{ case.progress }}%
+            </div>
           </div>
-        </div></td>
-        <td><button type="button" class="btn btn-default btn-block" disabled="disabled"><i class="fa fa-spinner fa-spin fa-fw"></i> Processing...</button></td>
+        </td>
+        <td>
+          {% case case.action %}
+            {% when 'Suspend' %}<button type="button" class="btn btn-warning btn-block">{{ case.action }} <i class="fa fa-chevron-right fa-fw"></i></button>
+            {% when 'Complete' %}<button type="button" class="btn btn-success btn-block">{{ case.action }} <i class="fa fa-chevron-right fa-fw"></i></button>
+            {% when 'Refer' %}<button type="button" class="btn btn-danger btn-block">{{ case.action }} <i class="fa fa-chevron-right fa-fw"></i></button>
+            {% else %}<button type="button" class="btn btn-default btn-block" disabled="disabled"><i class="fa fa-spinner fa-spin fa-fw"></i> {{ case.action }}</button>
+          {% endcase %}
+        </td>
       </tr>
-      <tr>
-        <td>Plan View</td>
-        <td>bc6bdeea-ca3e-4b8c-8173-eae0f6dba790</td>
-        <td><div class="progress">
-          <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 0%;">
-            0%
-          </div>
-        </div></td>
-        <td><button type="button" class="btn btn-default btn-block" disabled="disabled"><i class="fa fa-spinner fa-spin fa-fw"></i> Processing...</button></td>
-      </tr>
+      {% endfor %}
     </tbody>
   </table>
 </div>
