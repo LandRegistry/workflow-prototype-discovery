@@ -1,0 +1,55 @@
+---
+layout: service
+title: Priority C
+permalink: /prototypes/prioritise/priority/prioritycresults/
+---
+
+<div class="container">
+
+  <h1>Priority List results for DN100</h1>
+
+  <table id="tblSearchForm" class="table table-bordered table-condensed" style="width:35%">
+    <thead></thead>
+    <tbody>
+      <tr>
+        <td>
+          <form class="form-inline" role="form" action="{{ site.baseurl }}/prototypes/prioritise/priority/prioritycresults/">
+            <div class="form-group">
+              <input type="search_field" class="form-control" id="search_field" placeholder="Enter search term">
+            </div>
+            <button type="submit" class="btn btn-default">Search</button>
+          </form>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>View of the current priority list for the relevant item(s)</p>
+
+  <p><span class="badge">3</span> Search results for T/N {{site.data.prio-list.title}}</p>
+
+  <table id="tblDaylist" class="table table-bordered table-hover table-condensed table-striped">
+    <thead>
+      <tr>
+        <th>Order Number</th>
+        <th>Type</th>
+        <th>Priority</th>
+        <th>Status</th>
+        <th>Allocated</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% assign orders = site.data.prio-list.orders | sort: "timestamp" %}
+      {% for order in orders %}
+      <tr>
+        <td>{{order.id}}</td>
+        <td>{{order.type}}</td>
+        <td>{{order.timestamp}}</td>
+        <td>{{order.status}}</td>
+        <td>{{order.allocated}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+</div>

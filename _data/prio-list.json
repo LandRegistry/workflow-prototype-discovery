@@ -1,36 +1,28 @@
 {
+  "title" : "DN100",
   "orders" : [
     {
-      "id" : "123",
+      "id" : "A123DS",
       "type" : ["Transfer"],
-      "title number" : "DN100",
       "priority" : "y",
       "timestamp" : "2015-02-23T18:25:43.511Z",
-      "status" : "In Progress"
+      "status" : "New"
     },
     {
-      "id" : "456",
+      "id" : "B123DS",
       "type" : ["Charge"],
-      "title number" : "DN100",
       "priority" : "y",
       "timestamp" : "2015-02-23T18:25:43.511Z",
-      "status" : "In Progress"
+      "status" : "Captured",
+      "allocated" : "PH CT1"
     },
     {
-      "id" : "789",
+      "id" : "C123DS",
       "type" : ["Discharge"],
-      "title number" : "DN200",
       "priority" : "y",
       "timestamp" : "2015-02-23T18:25:43.511Z",
-      "status" : "In Progress"
-    },
-    {
-      "id" : "101",
-      "type" : ["Transfer"],
-      "title number" : "DN400",
-      "priority" : "y",
-      "timestamp" : "2015-02-25T12:00:43.511Z",
-      "status" : "In Progress"
+      "status" : "Complete",
+      "allocated" : "PH CT1"
     }
   ]
 }
