@@ -1,0 +1,185 @@
+---
+layout: service
+title: Priority B
+permalink: /prototypes/prioritise/priority/prioritybresults/
+---
+
+<div class="container">
+
+  <script>
+    function outputRow(x) {
+      //alert("Row index is: " + x.bgColor);
+      i = document.getElementById("titleNoOutput")
+      i.innerHTML = document.getElementById("titleNumber1").innerHTML
+      i = document.getElementById("lrRefOutput")
+      i.innerHTML = document.getElementById("lrReference1").innerHTML
+      i = document.getElementById("orderChannelOutput")
+      i.innerHTML = document.getElementById("orderChannel1").innerHTML
+      i = document.getElementById("customerNoOutput")
+      i.innerHTML = document.getElementById("customerNo1").innerHTML
+      i = document.getElementById("customerNameOutput")
+      i.innerHTML = document.getElementById("customerName1").innerHTML
+      //i = document.getElementById("customerAddressOutput")
+      //i.innerHTML = "Finance House</br>" + "22 North Road East</br>" + "Plymouth</br>" + "PL1 1DD"
+      line1 = document.getElementById("customerAddress1Line1").innerHTML
+      line2 = document.getElementById("customerAddress1Line2").innerHTML
+      line3 = document.getElementById("customerAddress1Line3").innerHTML
+      line4 = document.getElementById("customerAddress1Line4").innerHTML
+      lineBreak = "</br>"
+      city = document.getElementById("customerAddress1City").innerHTML
+      county = document.getElementById("customerAddress1County").innerHTML
+      country = document.getElementById("customerAddress1Country").innerHTML
+      postCode = document.getElementById("customerAddress1PostCode").innerHTML
+      addressString = formatAddressLines(line1, line2, line3, line4, lineBreak)
+      addressString2 = city + lineBreak + county + lineBreak + country + lineBreak + postCode
+      i = document.getElementById("customerAddressOutput")
+      i.innerHTML = addressString + addressString2
+      document.getElementById("tblOutput").hidden=""
+    }
+
+    function formatAddressLines(line1, line2, line3, line4, lineBreak){
+      outputString = ""
+      if (line1 != "") {
+        outputString = line1 + lineBreak
+      }
+      if (line2 != ""){
+        outputString = outputString + line2 + lineBreak
+      }
+      if (line3 != ""){
+        outputString = outputString + line3 + lineBreak
+      }
+      if (line4 != ""){
+        outputString = outputString + line4 + lineBreak
+      }
+      return outputString
+    }
+  </script>
+
+
+  <h1>Priority List RESULTS</h1>
+
+  <table id="tblSearchForm" class="table table-bordered table-condensed" style="width:35%">
+    <thead></thead>
+    <tbody>
+      <tr>
+        <td>
+          <form class="form-inline" role="form" action="{{ site.baseurl }}/prioritybresults/">
+              <div class="form-group">
+                <input type="search_field" class="form-control" id="search_field" placeholder="Enter search term">
+              </div>
+              <button type="submit" class="btn btn-default">Search</button>
+          </form>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>View of the current priority list for the relevant item(s)</p>
+
+  <p><span class="badge">3</span> Search results for T/N DN100</p>
+
+  <table id="tblDaylist" class="table table-bordered table-hover table-condensed table-striped">
+      <thead>
+        <tr>
+          <th>Order Number</th>
+          <th>Type</th>
+          <th>Priority</th>
+          <th>Status</th>
+          <th>Allocated</th>
+          <th hidden>Title Number</th>
+          <th hidden>Channel</th>
+          <th hidden>CustomerNo</th>
+          <th hidden>CustomerName</th>
+          <th hidden>CustomerAddress</th>
+
+          <th hidden>CustomerAddressLine1</th>
+          <th hidden>CustomerAddressLine2</th>
+          <th hidden>CustomerAddressLine3</th>
+          <th hidden>CustomerAddressLine4</th>
+          <th hidden>CustomerCity</th>
+          <th hidden>CustomerCounty</th>
+          <th hidden>CustomerCountry</th>
+          <th hidden>CustomerPostCode</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr onclick="outputRow(this);">
+          <td id="lrReference1">A123DS</td>
+          <td id="orderType1">CHG</td>
+          <td id="priorityDate1">12/02/2015 12:00:00</td>
+          <td id="orderStatus1">In Progress</td>
+          <td id="orderAllocation1">PH CT1</td>
+          <td hidden id="titleNumber1">DN100</td>
+          <td hidden id="orderChannel1">Charges API</td>
+          <td hidden id="customerNo1">2244095</td>
+          <td hidden id="customerName1">Maycock & Bumblebee LLP</td>
+          <td hidden id="customerAddress1Line1">Finance House</td>
+
+          <td hidden id="customerAddress1Line2">22 North Road East</td>
+          <td hidden id="customerAddress1Line3"></td>
+          <td hidden id="customerAddress1Line4"></td>
+          <td hidden id="customerAddress1City">Plymouth</td>
+          <td hidden id="customerAddress1County">Devon</td>
+          <td hidden id="customerAddress1Country">United Kingdom</td>
+          <td hidden id="customerAddress1PostCode">PL1 5DD</td>
+
+        </tr>
+        <tr>
+          <td>B123DS</td>
+          <td>T/P</td>
+          <td>12/02/2015 12:00:00</td>
+          <td>Captured</td>
+          <td>PH CT1</td>
+        </tr>
+        <tr>
+          <td>C123DS</td>
+          <td>DLG</td>
+          <td>13/02/2015 12:00:00</td>
+          <td>Captured</td>
+          <td>UNALLOCATED</td>
+        </tr>
+      </tbody>
+  </table>
+
+<table id="tblOutput" hidden>
+  <tbody>
+    <tr>
+      <td><b>Title Number: </b></td>
+      <td id="titleNoOutput"></td>
+    </tr>
+    <tr>
+      <td><b>LR Reference: </b></td>
+      <td id="lrRefOutput"></td>
+    </tr>
+    <tr>
+      <td><b>Order Channel: </b></td>
+      <td id="orderChannelOutput"></td>
+    </tr>
+    <tr>
+      <td><b>Customer Number:    </b></td>
+      <td id="customerNoOutput"></td>
+    </tr>
+    <tr>
+      <td><b>Customer Name:    </b></td>
+      <td id="customerNameOutput"></td>
+    </tr>
+    <tr>
+      <td valign="top"><b>Customer Address:    </b></td>
+      <td id="customerAddressOutput"></td>
+    </tr>
+  </tbody>
+</table>
+
+<!--
+  <p id="titleNumberOutput"></p>
+  <p id="lrReferenceOutput"></p>
+  <p id="keyNumberOutput"></p>
+  <p id="customerOutput"></p>
+  <p id="addressBuildingOutput"></p>
+  <p id="addressLinesOutput"></p>
+  <p id="addressCityOutput"></p>
+  <p id="postCodeOutput"></p>
+-->
+
+</div>
