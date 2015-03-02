@@ -24,3 +24,13 @@ This is the same script that Travis runs during the build, run this locally befo
 ```
 ./script/cibuild
 ```
+
+### Adding pages
+Place a new `.html` file in the appropriate prototype subject folder and add the following Front Matter, replacing the `<tags>` with your information:
+```
+---
+layout: service
+title: <Prototype Subject> <Major Version>.<Revision>
+permalink: <Prototype Subject>/<Major Version>/<Revision>
+---
+```
