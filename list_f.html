@@ -1,0 +1,258 @@
+---
+layout: service
+title: List F
+permalink: /listf/
+---
+  <!-- SIDE PANEL -->
+  <div class="col-md-3">
+    <div class="jumbotron">
+      <h3>Filter</h3>
+
+      <p><span class="badge">15</span> Substantives <i class="fa fa-arrow-circle-down"></i></p>
+      <div class="list-group">
+        <ul class="list-group">
+          <li class="list-group-item"><input type="checkbox" value="" checked> First Registration<span class="badge">1</span></li>
+          <li class="list-group-item"><input type="checkbox" value=""> Discharge<span class="badge">5</span></li>
+          <li class="list-group-item"><input type="checkbox" value="" checked> Charge<span class="badge">5</span></li>
+          <li class="list-group-item"><input type="checkbox" value=""> Transfer<span class="badge">3</span></li>
+          <li class="list-group-item"><input type="checkbox" value=""> First Lease<span class="badge">1</span></li>
+        </ul>
+      </div>
+
+      <p><span class="badge">1</span> Titles <i class="fa fa-arrow-circle-up"></i></p>
+
+      <p><span class="badge">76</span> Customer <i class="fa fa-arrow-circle-up"></i></p>
+
+      <p><span class="badge">63</span> Prelims <i class="fa fa-arrow-circle-up"></i></p>
+
+      <p><span class="badge">44</span> Corres <i class="fa fa-arrow-circle-up"></i></p>
+
+      <p><span class="badge">122</span> Received (Year)  <i class="fa fa-arrow-circle-down"></i></p>
+      <div class="list-group">
+        <ul class="list-group">
+          <li class="list-group-item"><input type="checkbox" value="" checked> 2015 <span class="badge">23</span></li>
+          <li class="list-group-item"><input type="checkbox" value="" checked> 2014 <span class="badge">99</span></li>
+        </ul>
+      </div>
+
+      <p><span class="badge">122</span> Received (Month) <i class="fa fa-arrow-circle-up"></i></p>
+
+    </div>
+  </div> <!-- end of side panel -->
+
+  <!-- main form -->
+    <div class="col-md-9">
+    <!-- header -->
+    <div class="media">
+      <div class="media-left">
+        <a href="#">
+          <img class="media-object"
+            src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/64/purchase_order.png" title = "Picture of an Order Form" alt="Picture of an Order Form">
+        </a>
+      </div>
+      <div class="media-body">
+        <h1 class="media-heading">Order Enquiries</h1>
+      </div>
+    </div> <!-- end of header -->
+
+    <br>
+
+    <!-- search components -->
+    <div class="row">
+
+      <!-- Search by button -->
+      <div class="col-md-2">
+        <div class="btn-group">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            Search by... <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Title Number</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Date Received</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Customer Reference</a></li>
+            <li><a href="#">LR Reference</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Order Type</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Processed by</a></li>
+          </ul>
+        </div>
+      </div><!-- end of Search by button -->
+
+      <!-- Search text -->
+      <div class="col-md-4">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search for...">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button"> <i class="fa fa-search"></i> </button>
+          </span>
+        </div>
+      </div><!-- end of Search Text -->
+
+      <!-- Historical Orders checkbox -->
+      <div class="col-md-3">
+        <li class="list-group-item"><input type="checkbox" value="" checked> Inc.Historical Orders</li>
+
+      </div><!-- end of Historical Orders checkbox  -->
+
+    </div><!-- end of search components row -->
+
+
+    <br>
+
+    <!-- Results Table -->
+
+    <div class="row">
+      <div class="col-md-9">
+        <h4> Search Results</h4>
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th style="width:8%">Order No.</th>
+                <th style="width:10%">Type</th>
+                <th style="width:25%">Customer</th>
+                <th style="width:25%">Status</th>
+                <th style="width:20%">Allocated to</th>
+                <th style="width:12%">Date Received</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr> <!-- row 1-->
+                <td>237</td>
+                <td>charge</td>
+                <td>Toy Town Bank</td>
+                <td>
+                  <div class="progress">
+                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%; color:black">Captured
+                    </div>
+                  </div>
+                </td>
+                <td>Unallocated</td>
+                <td>02/08/2015</td>
+              </tr> <!-- end of row 1-->
+              <tr> <!-- row 2-->
+                <td>213</td>
+                <td>charge</td>
+                <td>End game Solicitors</td>
+                <td>
+                  <div class="progress">
+                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%; color:black">In Progress
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <a href="mailto:kriss.latham-sneath@digital.landregistry.gov.uk?Subject=Order Enquiry" target="_top">CS718CS <i class="fa fa-envelope-o fa-fw"></i></a>
+                </td>
+                <td>02/08/2015</td>
+              </tr> <!-- end of row 2-->
+              <tr> <!-- row 3-->
+                <td>211</td>
+                <td>charge</td>
+                <td>Crofts & Sons Conveyancers</td>
+                <td>
+                  <div class="progress">
+                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%; color:black">Completed
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <a href="mailto:kriss.latham-sneath@digital.landregistry.gov.uk?Subject=Order Enquiry" target="_top">Customer <i class="fa fa-envelope-o fa-fw"></i></a>
+                </td>
+                <td>12/06/2015</td>
+              </tr> <!-- end of row 2-->
+
+              <tr> <!-- row 4-->
+                <td>210</td>
+                <td>charge</td>
+                <td>Crofts & Sons Conveyancers</td>
+                <td>
+                  <div class="progress">
+                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%; color:black">Cancelled
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <a href="mailto:kriss.latham-sneath@digital.landregistry.gov.uk?Subject=Order Enquiry" target="_top">Customer <i class="fa fa-envelope-o fa-fw"></i></a>
+                </td>
+                <td>12/06/2015</td>
+              </tr> <!-- end of row 4-->
+
+              <tr> <!-- row 5-->
+                <td>123</td>
+                <td>charge</td>
+                <td>Venture Co</td>
+                <td>
+                  <div class="progress">
+                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%; color:black">Completed
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <a href="mailto:kriss.latham-sneath@digital.landregistry.gov.uk?Subject=Order Enquiry" target="_top">Customer <i class="fa fa-envelope-o fa-fw"></i></a>
+                </td>
+                <td>22/11/1978</td>
+              </tr> <!-- end of row 5-->
+              <tr> <!-- row 6-->
+                <td>123</td>
+                <td>First Registration</td>
+                <td>Venture Co</td>
+                <td>
+                  <div class="progress">
+                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%; color:black">Completed
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <a href="mailto:kriss.latham-sneath@digital.landregistry.gov.uk?Subject=Order Enquiry" target="_top">Customer <i class="fa fa-envelope-o fa-fw"></i></a>
+                </td>
+                <td>22/11/1978</td>
+              </tr> <!-- end of row 6-->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div> <!-- end of Results Table -->
+
+    <br>
+
+    <div class="row"><!-- Details Panel -->
+      <h4>Order Details</h4>
+      <div class="col-md-9"><!-- Nav tabs -->
+        <ul class="nav nav-tabs">
+          <li role="presentation" style="width:20%" ><a href="#">Order Details</a></li>
+          <li role="presentation" style="width:20%"><a href="#">Customer Details</a></li>
+          <li role="presentation" style="width:20%"><a href="#">Fee Information</a></li>
+          <li role="presentation" style="width:20%"><a href="#">Activity Information</a></li>
+          <li role="presentation" style="width:20%" class="active"><a href="#">Links</a></li>
+        </ul>
+      </div><!-- end of Nav tabs -->
+
+      <!-- contents of tab -->
+      <div class="col-md-4"> <!-- links tabs col 1-->
+        <p> Title Links</p>
+        <p>
+          <a href="http://www.w3schools.com/html/" target="_blank">Register</a><i class="fa fa-external-link-square" title="opens in new window" alt="opens in new window"></i>
+        </p>
+        <p>
+          <a href="http://www.w3schools.com/html/" target="_blank">Title Plan</a><i class="fa fa-external-link-square" title="opens in new window" alt="opens in new window"></i>
+        </p>
+        <p>
+          <a href="http://www.w3schools.com/html/" target="_blank">Deed 04/04/2013</a><i class="fa fa-external-link-square" title="opens in new window" alt="opens in new window"></i>
+        </p>
+      </div> <!-- end of col 1 -->
+
+      <div class="col-md-4"> <!-- links tabs col 2-->
+        <p>Application Links</p>
+        <p>
+          <a href="http://www.w3schools.com/html/" target="_blank">AP1</a><i class="fa fa-external-link-square" title="opens in new window" alt="opens in new window"></i>
+        </p>
+        <p>
+          <a href="http://www.w3schools.com/html/" target="_blank">CHG</a><i class="fa fa-external-link-square" title="opens in new window" alt="opens in new window"></i>
+        </p>
+      </div> <!-- end of col 2 -->
+    </div><!-- end of details panel -->
+
+  </div><!-- end of main form -->
