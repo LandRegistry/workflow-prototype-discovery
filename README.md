@@ -6,7 +6,7 @@ Made with [Jekyll](http://jekyllrb.com/), [Bootstrap](http://getbootstrap.com/) 
 
 Tested with [HTML Proofer](https://github.com/gjtorikian/html-proofer).
 
-Deployed by [Travis CI](https://travis-ci.org/matthew-shaw/matthew-shaw.github.io).
+Deployed by [Travis CI](https://travis-ci.org/LandRegistry/workflow-prototypes).
 
 Hosted by [MaxCDN](http://www.bootstrapcdn.com/) and [GitHub Pages](https://pages.github.com/).
 
