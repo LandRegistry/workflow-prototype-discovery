@@ -7,36 +7,53 @@ permalink: /prototypes/prioritise/priority/prioritybresults/
 <div class="container">
 
   <script>
+    // ********************************************************************** //
+    // Gather the selected row from the daylist table and display the 'hidden'
+    // field information in the output form/table labelled additioanl information.
+    // ********************************************************************** //
     function outputRow(x) {
-      //alert("Row index is: " + x.bgColor);
+
+      // Gather number of current row used below to work out the field names
+      // to gather data from e.g. lrReference in row 1 is named 'lrReference1'
+      rowNumber= x.rowIndex
+
+      // Gather the output elements (fields within output table), and populate with
+      // the required value from the source grid.
       i = document.getElementById("titleNoOutput")
       i.innerHTML = document.getElementById("titleNumber1").innerHTML
       i = document.getElementById("lrRefOutput")
-      i.innerHTML = document.getElementById("lrReference1").innerHTML
+      i.innerHTML = document.getElementById("lrReference" + rowNumber).innerHTML
       i = document.getElementById("orderChannelOutput")
-      i.innerHTML = document.getElementById("orderChannel1").innerHTML
+      i.innerHTML = document.getElementById("orderChannel" + rowNumber).innerHTML
       i = document.getElementById("customerNoOutput")
-      i.innerHTML = document.getElementById("customerNo1").innerHTML
+      i.innerHTML = document.getElementById("customerNo" + rowNumber).innerHTML
       i = document.getElementById("customerNameOutput")
-      i.innerHTML = document.getElementById("customerName1").innerHTML
+      i.innerHTML = document.getElementById("customerName" + rowNumber).innerHTML
       //i = document.getElementById("customerAddressOutput")
       //i.innerHTML = "Finance House</br>" + "22 North Road East</br>" + "Plymouth</br>" + "PL1 1DD"
-      line1 = document.getElementById("customerAddress1Line1").innerHTML
-      line2 = document.getElementById("customerAddress1Line2").innerHTML
-      line3 = document.getElementById("customerAddress1Line3").innerHTML
-      line4 = document.getElementById("customerAddress1Line4").innerHTML
+      line1 = document.getElementById("customerAddressLine1_" + rowNumber).innerHTML
+      line2 = document.getElementById("customerAddressLine2_" + rowNumber).innerHTML
+      line3 = document.getElementById("customerAddressLine3_" + rowNumber).innerHTML
+      line4 = document.getElementById("customerAddressLine4_" + rowNumber).innerHTML
       lineBreak = "</br>"
-      city = document.getElementById("customerAddress1City").innerHTML
-      county = document.getElementById("customerAddress1County").innerHTML
-      country = document.getElementById("customerAddress1Country").innerHTML
-      postCode = document.getElementById("customerAddress1PostCode").innerHTML
+      city = document.getElementById("customerAddressCity_" + rowNumber).innerHTML
+      county = document.getElementById("customerAddressCounty_" + rowNumber).innerHTML
+      country = document.getElementById("customerAddressCountry_" + rowNumber).innerHTML
+      postCode = document.getElementById("customerAddressPostCode_" + rowNumber).innerHTML
+      // Concatenate all the address parts, format with line breaks and
+      // output into one field
       addressString = formatAddressLines(line1, line2, line3, line4, lineBreak)
       addressString2 = city + lineBreak + county + lineBreak + country + lineBreak + postCode
       i = document.getElementById("customerAddressOutput")
       i.innerHTML = addressString + addressString2
-      document.getElementById("tblOutput").hidden=""
+      // Final task is to unhide the output form/table by clearing the 'hidden'
+      // attribute
+      document.getElementById("frmOutput").hidden=""
     }
 
+    // ********************************************************************** //
+    // Concatenate and format the address lines including line breaks
+    // ********************************************************************** //
     function formatAddressLines(line1, line2, line3, line4, lineBreak){
       outputString = ""
       if (line1 != "") {
@@ -63,7 +80,7 @@ permalink: /prototypes/prioritise/priority/prioritybresults/
     <tbody>
       <tr>
         <td>
-          <form class="form-inline" role="form" action="{{ site.baseurl }}/prioritybresults/">
+          <form class="form-inline" role="form" action="{{ site.baseurl }}/prototypes/prioritise/priority/prioritybresults/">
               <div class="form-group">
                 <input type="search_field" class="form-control" id="search_field" placeholder="Enter search term">
               </div>
@@ -76,110 +93,81 @@ permalink: /prototypes/prioritise/priority/prioritybresults/
 
   <p>View of the current priority list for the relevant item(s)</p>
 
-  <p><span class="badge">3</span> Search results for T/N DN100</p>
+  <p><span class="badge">3</span> Search results for T/N {{site.data.prio-list-mt.title}}</p>
 
   <table id="tblDaylist" class="table table-bordered table-hover table-condensed table-striped">
-      <thead>
-        <tr>
-          <th>Order Number</th>
-          <th>Type</th>
-          <th>Priority</th>
-          <th>Status</th>
-          <th>Allocated</th>
-          <th hidden>Title Number</th>
-          <th hidden>Channel</th>
-          <th hidden>CustomerNo</th>
-          <th hidden>CustomerName</th>
-          <th hidden>CustomerAddress</th>
+    <thead>
+      <tr>
+        <th>Order Number</th>
+        <th>Type</th>
+        <th>Priority</th>
+        <th>Status</th>
+        <th>Allocated</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% assign orders = site.data.prio-list-mt.orders | sort: "timestamp" %}
+      {% for order in orders %}
+      <tr onclick="outputRow(this);">
+        {% assign index = forloop.index%}
+        {% assign fieldName = 'lrReference' %}
+        {% assign idHeader = refHeader | append: index %}
+        {% assign myArray[0] = 'lrReference'%}
+        <td id="lrReference{{ index }}">{{order.id}}</td>
+        <td id="orderType{{ index }}">{{order.type}}</td>
+        <td id="priorityDate{{ index }}">{{order.timestamp}}</td>
+        <td id="orderStatus{{ index }}">{{order.status}}</td>
+        <td id="orderAllocation1{{ index }}">{{order.allocated}}</td>
 
-          <th hidden>CustomerAddressLine1</th>
-          <th hidden>CustomerAddressLine2</th>
-          <th hidden>CustomerAddressLine3</th>
-          <th hidden>CustomerAddressLine4</th>
-          <th hidden>CustomerCity</th>
-          <th hidden>CustomerCounty</th>
-          <th hidden>CustomerCountry</th>
-          <th hidden>CustomerPostCode</th>
+        <td hidden id="titleNumber{{ index }}">{{site.data.prio-list-mt.title}}</td>
+        <td hidden id="orderChannel{{ index }}">{{order.channel}}</td>
+        <td hidden id="customerNo{{ index }}">{{order.customerNo}}</td>
+        <td hidden id="customerName{{ index }}">{{order.customerName}}</td>
+        <td hidden id="customerAddressLine1_{{ index }}">{{order.address1}}</td>
 
-        </tr>
-      </thead>
-      <tbody>
-        <tr onclick="outputRow(this);">
-          <td id="lrReference1">A123DS</td>
-          <td id="orderType1">CHG</td>
-          <td id="priorityDate1">12/02/2015 12:00:00</td>
-          <td id="orderStatus1">In Progress</td>
-          <td id="orderAllocation1">PH CT1</td>
-          <td hidden id="titleNumber1">DN100</td>
-          <td hidden id="orderChannel1">Charges API</td>
-          <td hidden id="customerNo1">2244095</td>
-          <td hidden id="customerName1">Maycock & Bumblebee LLP</td>
-          <td hidden id="customerAddress1Line1">Finance House</td>
-
-          <td hidden id="customerAddress1Line2">22 North Road East</td>
-          <td hidden id="customerAddress1Line3"></td>
-          <td hidden id="customerAddress1Line4"></td>
-          <td hidden id="customerAddress1City">Plymouth</td>
-          <td hidden id="customerAddress1County">Devon</td>
-          <td hidden id="customerAddress1Country">United Kingdom</td>
-          <td hidden id="customerAddress1PostCode">PL1 5DD</td>
-
-        </tr>
-        <tr>
-          <td>B123DS</td>
-          <td>T/P</td>
-          <td>12/02/2015 12:00:00</td>
-          <td>Captured</td>
-          <td>PH CT1</td>
-        </tr>
-        <tr>
-          <td>C123DS</td>
-          <td>DLG</td>
-          <td>13/02/2015 12:00:00</td>
-          <td>Captured</td>
-          <td>UNALLOCATED</td>
-        </tr>
-      </tbody>
+        <td hidden id="customerAddressLine2_{{ index }}">{{order.address2}}</td>
+        <td hidden id="customerAddressLine3_{{ index }}">{{order.address3}}</td>
+        <td hidden id="customerAddressLine4_{{ index }}">{{order.address4}}</td>
+        <td hidden id="customerAddressCity_{{ index }}">{{order.city}}</td>
+        <td hidden id="customerAddressCounty_{{ index }}">{{order.county}}</td>
+        <td hidden id="customerAddressCountry_{{ index }}">{{order.country}}</td>
+        <td hidden id="customerAddressPostCode_{{ index }}">{{order.postcode}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
   </table>
 
-<table id="tblOutput" hidden>
-  <tbody>
-    <tr>
-      <td><b>Title Number: </b></td>
-      <td id="titleNoOutput"></td>
-    </tr>
-    <tr>
-      <td><b>LR Reference: </b></td>
-      <td id="lrRefOutput"></td>
-    </tr>
-    <tr>
-      <td><b>Order Channel: </b></td>
-      <td id="orderChannelOutput"></td>
-    </tr>
-    <tr>
-      <td><b>Customer Number:    </b></td>
-      <td id="customerNoOutput"></td>
-    </tr>
-    <tr>
-      <td><b>Customer Name:    </b></td>
-      <td id="customerNameOutput"></td>
-    </tr>
-    <tr>
-      <td valign="top"><b>Customer Address:    </b></td>
-      <td id="customerAddressOutput"></td>
-    </tr>
-  </tbody>
-</table>
+  <form id="frmOutput" hidden>
+    <legend>Additional Information:</legend>
 
-<!--
-  <p id="titleNumberOutput"></p>
-  <p id="lrReferenceOutput"></p>
-  <p id="keyNumberOutput"></p>
-  <p id="customerOutput"></p>
-  <p id="addressBuildingOutput"></p>
-  <p id="addressLinesOutput"></p>
-  <p id="addressCityOutput"></p>
-  <p id="postCodeOutput"></p>
--->
+    <table id="tblOutput">
+      <tbody>
+        <tr>
+          <td><b>Title Number: </b></td>
+          <td id="titleNoOutput"></td>
+        </tr>
+        <tr>
+          <td><b>LR Reference: </b></td>
+          <td id="lrRefOutput"></td>
+        </tr>
+        <tr>
+          <td><b>Order Channel: </b></td>
+          <td id="orderChannelOutput"></td>
+        </tr>
+        <tr>
+          <td><b>Customer Number:    </b></td>
+          <td id="customerNoOutput"></td>
+        </tr>
+        <tr>
+          <td><b>Customer Name:    </b></td>
+          <td id="customerNameOutput"></td>
+        </tr>
+        <tr>
+          <td valign="top"><b>Customer Address:    </b></td>
+          <td id="customerAddressOutput"></td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
 
 </div>
