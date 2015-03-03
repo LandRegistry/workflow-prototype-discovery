@@ -11,7 +11,12 @@ Deployed by [Travis CI](https://travis-ci.org/LandRegistry/workflow-prototypes).
 Hosted by [MaxCDN](http://www.bootstrapcdn.com/) and [GitHub Pages](https://pages.github.com/).
 
 ### Getting started
-Requires [Ruby](https://www.ruby-lang.org/en/downloads/),  [RubyGems](http://rubygems.org/pages/download) and [Bundler](http://bundler.io)
+Requires:
+* [Ruby](https://www.ruby-lang.org/en/downloads/)
+* [RubyGems](http://rubygems.org/pages/download)
+* [Bundler](http://bundler.io)
+
+Then:
 ```
 git clone git@github.com:LandRegistry/workflow-prototypes.git
 cd workflow-prototypes
