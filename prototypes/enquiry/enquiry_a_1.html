@@ -98,8 +98,7 @@ permalink: /enquiry/a/1/
               </tr>
             </thead>
             <tbody>
-              {% assign applications = site.data.DN1234.applications | sort: "received" %}
-              {% for application in applications %}
+              {% for application in site.data.DN1234.applications %}
               {% case application.status %}
               {% when "Referred" %}
               <tr class="danger">
@@ -208,7 +207,7 @@ permalink: /enquiry/a/1/
         <h4 class="modal-title" id="ApplicationLabel{{ forloop.index }}">{{ application.reference }}</h4>
       </div>
       <div class="modal-body">
-        <p>Application for a {{ application.type }}, reference {{ application.reference }} from {{ application.customer }} dated {{ application.received | date: "%d/%m/%Y" }} at {{ application.timestamp | date: "%T"}} was last updated on {{ application.updated | date: "%d/%m/%Y" }} at {{ application.updated | date: "%T" }} and is currently {{ application.status }}.</p>
+        <p>Application for a {{ application.type }}, reference {{ application.reference }} from {{ application.customer }} dated {{ application.received | date: "%d/%m/%Y" }} at {{ application.received | date: "%T"}} was last updated on {{ application.updated | date: "%d/%m/%Y" }} at {{ application.updated | date: "%T" }} and is currently {{ application.status }}.</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
