@@ -119,38 +119,74 @@
       "filename": "marriage_certificate.pdf",
       "description": "Marriage Certificate",
       "timestamp": "2015-02-26T08:25:43.511Z",
-      "size": "1.2 MB"
+      "size": "1.2 MB",
+      "historical": "False"
     },
     {
       "type": "Image",
       "filename": "scan000001.png",
       "description": "AP1 form",
       "timestamp": "2015-02-26T08:25:43.511Z",
-      "size": "1.5 MB"
+      "size": "1.5 MB",
+      "historical": "False"
     },
     {
       "type": "Word",
       "filename": "cover_letter_20150228.docx",
       "description": "Covering Letter",
       "timestamp": "2015-03-12T13:44:13.511Z",
-      "size": "128 KB"
+      "size": "128 KB",
+      "historical": "False"
     },
     {
       "type": "Plan",
-      "filename": "10_Didsbury_Street.dwg",
+      "filename": "10_Didsbury_Street_v2.dwg",
       "description": "Property Developer's Plan",
       "timestamp": "2015-03-12T13:44:13.511Z",
-      "size": "5.8 MB"
+      "size": "5.8 MB",
+      "historical": "False"
     },
     {
       "type": "Email",
       "filename": "update_10_didsbury.eml",
       "description": "Email request for update",
       "timestamp": "2015-03-16T17:32:12.342Z",
-      "size": "11 KB"
+      "size": "11 KB",
+      "historical": "False"
+    },
+    {
+      "type": "Plan",
+      "filename": "10_Didsbury_Street.dwg",
+      "description": "Property Developer's Plan",
+      "timestamp": "2015-02-01T10:44:13.511Z",
+      "size": "4.5 MB",
+      "historical": "True"
     }
   ],
   "notes": [
-
+    {
+      "name": "Cal Crutchlow",
+      "team": "CT1",
+      "office": "Plymouth",
+      "date": "11/03/2015",
+      "time": "15:10",
+      "text": "I added a charge."
+    },
+    {
+      "name": "Ryan Bowman",
+      "team": "CT1",
+      "office": "Plymouth",
+      "date": "11/03/2015",
+      "time": "09:00",
+      "text": "I needed to refer application z123hgf to the Upper in the team."
+    },
+    {
+      "name": "Jess Ennis",
+      "team": "CT6",
+      "office": "Plymouth",
+      "date": "10/03/2015",
+      "time": "16:45",
+      "text": "I went back to the customer as the AP1 was incomplete."
+    }
   ]
 }
